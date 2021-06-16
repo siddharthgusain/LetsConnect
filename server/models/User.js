@@ -38,7 +38,6 @@ const userSchema = new mongoose.Schema({
     isAdmin:{
         type:Boolean,
         default:false,
-<<<<<<< HEAD
     },
     desc:{
         type:String,
@@ -56,9 +55,6 @@ const userSchema = new mongoose.Schema({
         type: Number,
         enum:[1,2,3],
     }
-=======
-    }, 
->>>>>>> 3a357dffcabb207c9b5e96b568b2db90cef1a643
 },
 {
     timestamps:true
