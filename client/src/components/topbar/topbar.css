@@ -10,11 +10,17 @@
 
 .topbarLeft{
     flex:3;
+    display: flex;
+    align-items: center;
+}
+
+.logoImg{
+    margin-left: 12px;
+    color: tomato
 }
 
 .logo{
     font-size: 24px;
-    margin-left: 20px;
     font-weight: bold;
     color:whitesmoke;
     cursor: pointer;

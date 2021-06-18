@@ -1,10 +1,11 @@
 import './topbar.css';
-import { Search , Person , Chat , Notifications } from '@material-ui/icons';
+import { Search , Person , Chat , Notifications ,TouchApp } from '@material-ui/icons';
 
 export default function Topbar(){
     return (
         <div className="topbarContainer">
             <div className="topbarLeft">
+                <TouchApp className="logoImg" />
                 <span className="logo">LetsConnect</span>
             </div>
             <div className="topbarCenter">
