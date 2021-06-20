@@ -24,5 +24,5 @@ app.use("/api/auth" , authRoute);
 app.use("/api/posts",postRoute);
 
 app.listen(8080,() =>{
-    console.log("test");
+    console.log("Server started at port 8080");
 });
