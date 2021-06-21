@@ -1,10 +1,11 @@
 import './friends.css';
 
 export default function Friends({user}) {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
         <li className="sidebarFriend">
             <img className="sidebarFriendImg" 
-                src={user.profilePicture} 
+                src={PF + user.profilePicture} 
                 alt=""/>
             <span className="sidebarFriendName">{user.username}</span>
         </li>
