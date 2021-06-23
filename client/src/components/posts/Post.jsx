@@ -17,7 +17,7 @@ export default function Post({post}) {
         
         const fetchUser = async () =>{
             
-            const res =  await axios.get(`users/${ post.userId }`);
+            const res =  await axios.get(`/users?userId=${post.userId}`);
             setUser(res.data);
         }
         
@@ -37,7 +37,7 @@ export default function Post({post}) {
                     <div className="postTopLeft">
                         <Link to= { `profile/${ user.username }` }>
                             <img className="postProfileImg" 
-                                src={user.profilePicture || PF+"person/noAvatar.png"}
+                                src={ user.profilePicture || PF+"person/noAvatar.png" }
                                 alt="" />
                         </Link>
                         <span className="postUsername">{ user.username }</span>
