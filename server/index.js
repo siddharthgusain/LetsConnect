@@ -12,7 +12,7 @@ dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL,
     {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true} ,() =>{
-    console.log("connected to mongo");
+    console.log("connected to mongoDB");
 });
 
 app.use(express.json());
