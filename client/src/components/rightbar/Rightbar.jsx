@@ -16,7 +16,7 @@ export default function Rightbar({ user }) {
                         </span>
                 </div>
                
-                <img className="rightbarAd" src="/assets/ad.jpg" alt="" />
+                <img className="rightbarAd" src="/assets/ad.png" alt="" />
                 <h4 className="rightbarTitle">Online Friends</h4>
                 <ul className="rightbarFriendList">
                    {
