@@ -1,7 +1,12 @@
 import './share.css';
 import { PermMedia ,Label , Room , EmojiEmotions } from "@material-ui/icons";
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function Share() {
+
+    const { user } = useContext(AuthContext);
+    
     return (
         <div className="share">
             <div className="shareWrapper">
