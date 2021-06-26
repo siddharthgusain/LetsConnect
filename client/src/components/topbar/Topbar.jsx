@@ -1,5 +1,5 @@
 import './topbar.css';
-import { Search , Person , Chat , Notifications ,TouchApp } from '@material-ui/icons';
+import { Search , Person , Chat , Notifications } from '@material-ui/icons';
 import { Link } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
@@ -8,13 +8,14 @@ export default function Topbar(){
 
 
     const { user } = useContext(AuthContext);
+    
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
     return (
         <div className="topbarContainer">
             <div className="topbarLeft">
                 <Link to="/" style={{ textDecoration:"none" }}>
-                    <TouchApp className="logoImg" />
+                    <img src ={ PF + "app_icon.png" } className="logoImg" alt="" />
                     <span className="logo">LetsConnect</span>
                 </Link>
             </div>

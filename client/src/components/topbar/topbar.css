@@ -16,8 +16,11 @@
 }
 
 .logoImg{
-    margin-left: 12px;
-    color: tomato
+    
+    margin-left: 25px;
+    margin-right: 10px;
+    height: 30px;
+    width: 30px;
 }
 
 .logo{

@@ -16,11 +16,13 @@ export default function Login() {
              dispatch);
     };
 
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
     return (
         <div className="login">
             <div className="loginWrapper">
                 <div className="loginLeft">
+                    <img src={PF + "app_icon.png"} className="loginImg" alt="" />
                     <h3 className="loginLogo">LetsConnect</h3>
                     <span className="loginDesc">
                         Start your journey and meet people around you.
