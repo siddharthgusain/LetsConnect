@@ -6,7 +6,8 @@ import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from '../../context/AuthContext';
 
-export default function Post({post}) {
+
+export default function Post({ post }) {
     
     const [ like, setLike ] = useState(post.likes.length);
     const [ isLiked , setIsLiked ] = useState(false);
