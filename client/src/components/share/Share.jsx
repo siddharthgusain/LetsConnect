@@ -21,13 +21,34 @@ export default function Share() {
             desc : desc.current.value
         }
 
+        if(file){
+            
+            const data = new FormData();
+            const fileName = Date.now() + file.name;
+            data.append("name",fileName);
+            data.append("file",file);
+            
+            newPost.img = fileName;
+            console.log(newPost);
+
+            try{
+
+                await axios.post("/upload",data);
+
+            }catch(err){
+                console.log(err);
+            }
+        }
+
         try{
 
             await axios.post("/posts",newPost);
+            // window.location.reload();
+
         }catch(err){
-            
+            console.log(err);
         }
-    }
+    };
 
     return (
 
@@ -36,10 +57,12 @@ export default function Share() {
                 <div className="shareTop">
                     <img className="shareProfileImg"
                          src={
-                             user.profilePicture ? PF + user.profilePicture
+                             user.profilePicture 
+                             ? PF + user.profilePicture
                              : PF + "person/noAvatar.png" 
                             } 
-                         alt="" />
+                         alt="" 
+                    />
                     <input 
                         placeholder={ "Share what's on your mind " + user.username + " ?"}
                         className ="shareInput"
@@ -55,7 +78,8 @@ export default function Share() {
                             <span className="shareOptionText">Photo/Video</span>
                             <input
                                  style = { { display : "none" } }
-                                 type = "file" id = "file" 
+                                 type = "file" 
+                                 id = "file" 
                                  accept = ".png,.jpeg,.jpg" 
                                  onChange ={(e) => setFile( e.target.files[0])}
                             />
