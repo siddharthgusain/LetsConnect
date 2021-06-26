@@ -25,17 +25,17 @@ export default function Sidebar(){
                         <span className="sidebarListItemText">Chats</span>
                     </li>
 
-                    <li className="sidebarListItem">
+                    {/* <li className="sidebarListItem">
                         <PlayCircleFilledOutlined htmlColor="blue" className="sidebarIcon" />
                         <span className="sidebarListItemText">Videos</span>
-                    </li>
+                    </li> */}
 
                     <li className="sidebarListItem">
                         <Group htmlColor = "pink" className="sidebarIcon" />
                         <span className="sidebarListItemText">Groups</span>
                     </li>
 
-                    <li className="sidebarListItem">
+                    {/* <li className="sidebarListItem">
                         <Bookmark htmlColor="yellow" className="sidebarIcon" />
                         <span className="sidebarListItemText">Bookmarks</span>
                     </li>
@@ -58,7 +58,7 @@ export default function Sidebar(){
                         <School className="sidebarIcon" />
                         <span className="sidebarListItemText">Courses</span>
                     </li>
-                    <button className="sidebarButton">Show more</button>
+                    <button className="sidebarButton">Show more</button> */}
                     <hr className="sidebarHr" />
                     <ul className="sidebarFriendList">
                        {

@@ -12,6 +12,8 @@ export default function Register() {
     const passwordAgain = useRef();
     const history = useHistory();
     
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    
     const handleClick = async (e) => {
         e.preventDefault();
 
@@ -42,6 +44,7 @@ export default function Register() {
         <div className="login">
             <div className="loginWrapper">
                 <div className="loginLeft">
+                    <img src={PF + "app_icon.png"} className="loginImg" alt="" />
                     <h3 className="loginLogo">LetsConnect</h3>
                     <span className="loginDesc">
                         Start Your Journey and meet people around you.
