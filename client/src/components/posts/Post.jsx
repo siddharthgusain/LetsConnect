@@ -36,8 +36,9 @@ export default function Post({ post }) {
         try{
             axios.put("/posts/" + post._id + "/like" , { userId : currentUser._id });
         }catch(err){
-
+            console.log(err);
         }
+
         setLike(isLiked ? like-1 : like+1);
         setIsLiked(!isLiked);
     }
@@ -50,7 +51,8 @@ export default function Post({ post }) {
                         <Link to= { `profile/${ user.username }` }>
                             <img className="postProfileImg" 
                                 src={
-                                    user.profilePicture ? PF + user.profilePicture 
+                                    user.profilePicture 
+                                    ? PF + user.profilePicture 
                                     : PF+"person/noAvatar.png" 
                                     }
                                 alt="" />
@@ -68,12 +70,20 @@ export default function Post({ post }) {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img className="likeIcon" src={`${PF}like.png`} onClick = { likeHandler } alt=""/>
-                        <img className="likeIcon" src={`${PF}heart.png`} onClick = { likeHandler } alt="" />
-                        <span className="postLikeCounter">{like}</span>               
+                        <img className="likeIcon" 
+                             src={`${PF}like.png`} 
+                             onClick = { likeHandler } 
+                             alt=""
+                        />
+                        <img className="likeIcon"
+                             src={`${PF}heart.png`} 
+                             onClick = { likeHandler }  
+                             alt="" 
+                        />
+                        <span className="postLikeCounter">{ like } people like it</span>               
                     </div>
                     <div className="postBottomRight">
-                        <span className="postCommentText" >{post.comment} comments</span>
+                        <span className="postCommentText" >{ post.comment } comments</span>
                     </div>
                 </div>
             </div>

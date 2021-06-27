@@ -12,6 +12,7 @@ export default function Topbar(){
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
     return (
+
         <div className="topbarContainer">
             <div className="topbarLeft">
                 <Link to="/" style={{ textDecoration:"none" }}>
@@ -46,7 +47,8 @@ export default function Topbar(){
                     </div>
                 </div>
                 <Link to = { `/profile/${ user.username }` }>
-                    <img className="topbarImg" 
+                    <img 
+                        className="topbarImg" 
                         src={
                             user.profilePicture ? PF + user.profilePicture
                             : PF + "person/noAvatar.png" 

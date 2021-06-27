@@ -8,11 +8,12 @@ export default function Login() {
 
     const email = useRef();
     const password = useRef();
-    const { user , isFetching , error , dispatch } = useContext(AuthContext);
+    const { isFetching , dispatch } = useContext(AuthContext);
 
     const handleClick = (e) =>{
         e.preventDefault();
-        loginCall({email: email.current.value , password : password.current.value },
+        loginCall(
+            {email: email.current.value , password : password.current.value },
              dispatch);
     };
 
@@ -47,8 +48,10 @@ export default function Login() {
                         </button>
                         <span className="loginForgot">Forgot Password?</span>
                         <button className="loginRegisterButton">
-                       { isFetching ? <CircularProgress color="inherit" size="30px" /> 
-                                    : "Create a new account" }
+                       { isFetching 
+                            ? (<CircularProgress color="inherit" size="30px" />) 
+                            : ("Create a new account") 
+                            }
                         </button>
                     </form>
                 </div>

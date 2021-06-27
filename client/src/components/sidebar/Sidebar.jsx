@@ -1,8 +1,11 @@
 import './sidebar.css';
-import { RssFeed ,Chat , 
-    PlayCircleFilledOutlined , 
-    Group , Bookmark , HelpOutline,
-    WorkOutline , Event , School
+import { 
+    RssFeed,
+    Chat , 
+    Group
+    // PlayCircleFilledOutlined , 
+    //   Bookmark , HelpOutline,
+    // WorkOutline , Event , School
 } from '@material-ui/icons';
 
 import { Users } from '../../dummyData';
@@ -25,16 +28,17 @@ export default function Sidebar(){
                         <span className="sidebarListItemText">Chats</span>
                     </li>
 
-                    {/* <li className="sidebarListItem">
-                        <PlayCircleFilledOutlined htmlColor="blue" className="sidebarIcon" />
-                        <span className="sidebarListItemText">Videos</span>
-                    </li> */}
-
                     <li className="sidebarListItem">
                         <Group htmlColor = "pink" className="sidebarIcon" />
                         <span className="sidebarListItemText">Groups</span>
                     </li>
 
+                    {/* <li className="sidebarListItem">
+                        <PlayCircleFilledOutlined htmlColor="blue" className="sidebarIcon" />
+                        <span className="sidebarListItemText">Videos</span>
+                    </li> */}
+
+            
                     {/* <li className="sidebarListItem">
                         <Bookmark htmlColor="yellow" className="sidebarIcon" />
                         <span className="sidebarListItemText">Bookmarks</span>

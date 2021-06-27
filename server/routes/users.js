@@ -102,6 +102,7 @@ router.get("/friends/:userId" , async (req , res)=>{
 
 // follow a user
 router.put("/:id/follow",async (req,res) => {
+    
     if(req.body.userId !== req.params.id){
         try{
 
@@ -127,19 +128,9 @@ router.put("/:id/follow",async (req,res) => {
     }
 });
 
-//unfollow user
-router.get("/:id" ,  async (req,res) =>{
-    try{
-        const user = await User.findById(req.params.id);
-        const {password , updatedAt , ...other} = user._doc;
-        res.status(200).json(other);
-    }catch(err){
-        res.status(500).json(err);
-    }
-});
 
 
-// follow a user
+// unfollow a user
 router.put("/:id/unfollow",async (req,res) => {
     if(req.body.userId !== req.params.id){
         try{
@@ -153,7 +144,7 @@ router.put("/:id/unfollow",async (req,res) => {
                 res.status(200).json("User has been unfollowed");
             }
             else{  
-                res.status(403).json("You don't this user");
+                res.status(403).json("You don't follow this user");
             }
 
         }
