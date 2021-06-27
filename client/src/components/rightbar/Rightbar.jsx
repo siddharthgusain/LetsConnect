@@ -16,7 +16,6 @@ export default function Rightbar({ user }) {
 
     const { user : currentUser , dispatch } = useContext(AuthContext);
 
-
     const [followed, setFollowed] = useState(currentUser.followings.includes(user?.id));
     
 
@@ -37,7 +36,7 @@ export default function Rightbar({ user }) {
 
     },[user]);
 
-    const handleClick = async () =>{
+    const handleFollowClick = async () =>{
 
         try {
 
@@ -66,6 +65,8 @@ export default function Rightbar({ user }) {
 
     };
 
+
+
     const HomeRightbar = () => {
         return (
             <>
@@ -93,12 +94,22 @@ export default function Rightbar({ user }) {
         return (
             <>
                 { user.username !== currentUser.username && (
-                    <button className="rightbarFollowButton" onClick = { handleClick }>
+                    <button className="rightbarFollowButton" onClick = { handleFollowClick }>
                        { followed ? "Unfollow" : "Follow"}
                        { followed ? <Remove /> : <Add /> }
                        
                     </button>
+                   
                 )}
+                {
+                    user.username === currentUser.username && (
+
+                    <button className = "rightbarLogoutButton"  >
+                        Logout
+                    </button>
+
+                    )
+                }
 
                 <h4 className="rightbarTitle">User Information</h4>
                 <div className="rightbarInfo">

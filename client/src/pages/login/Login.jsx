@@ -11,10 +11,12 @@ export default function Login() {
     const { isFetching , dispatch } = useContext(AuthContext);
 
     const handleClick = (e) =>{
+
         e.preventDefault();
-        loginCall(
-            {email: email.current.value , password : password.current.value },
-             dispatch);
+        loginCall({ email: email.current.value , 
+                   password : password.current.value 
+                  },dispatch);
+
     };
 
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -23,7 +25,7 @@ export default function Login() {
         <div className="login">
             <div className="loginWrapper">
                 <div className="loginLeft">
-                    <img src={PF + "app_icon.png"} className="loginImg" alt="" />
+                    <img src={ PF + "app_icon.png" } className="loginImg" alt="" />
                     <h3 className="loginLogo">LetsConnect</h3>
                     <span className="loginDesc">
                         Start your journey and meet people around you.
