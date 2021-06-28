@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 
 import { AuthContext } from './context/AuthContext';
+import Messenger from './pages/messenger/Messenger';
 
 function App() {
 
@@ -23,11 +24,14 @@ function App() {
         <Route exact path="/">
             { user ? <Home /> : <Register />}
         </Route>
-        <Route exact path="/login">
+        <Route path="/login">
           { user ? <Redirect to="/" /> : <Login /> }
         </Route>
-        <Route exact path="/register">
+        <Route  path="/register">
         { user ? <Redirect to="/" /> : <Register />}
+         </Route>
+         <Route  path="/messenger">
+        { !user ? <Redirect to="/" /> : <Messenger />}
          </Route>
         <Route path="/profile/:username">
             <Profile />
