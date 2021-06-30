@@ -12,14 +12,42 @@ import { io } from 'socket.io-client';
 export default function Messenger() {
 
     const { user } = useContext(AuthContext);
-
     const [conversations , setConversations ] = useState([]);
     const [currentChat , setCurrentChat ] = useState(null);
     const [messages , setMessages ] = useState([]);
     const [newMessage , setNewMessage ] = useState("");
-    const [socket , setSocket] = useState();
+    const [arrivalMessage , setArrivalMessage ] = useState(null);
+    const [onlineUsers , setOnlineUsers] = useState([]);
     const scrollRef = useRef();
+    const socket = useRef();
 
+    useEffect(() =>{
+
+        socket.current = io("ws://localhost:8900");
+        socket.current.on("getMessage" , data =>{
+            setArrivalMessage({
+                sender:data.senderId,
+                text:data.text,
+                createdAt : Date.now()
+            });
+        });
+
+    },[]);
+
+    useEffect(()=>{
+        arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
+        setMessages((prev) => [...prev,arrivalMessage]);
+
+    },[arrivalMessage ,currentChat]);
+
+    useEffect(()=>{
+        socket.current.emit("addUser" , user._id);
+        socket.current.on("getUsers" , (users) =>{
+            setOnlineUsers(
+                user.followings.filter((f) => users.some((u) => u.userId === f))
+              );
+        })
+    },[user]);
 
     useEffect(() =>{
         
@@ -71,6 +99,14 @@ export default function Messenger() {
             conversationId: currentChat._id,
         };
 
+        const recieverId = currentChat.members.find(member => member !== user._id);
+
+        socket.current.emit("sendMessage",{
+            senderId: user._id,
+            recieverId,
+            text : newMessage
+        });
+
         try{
 
             const res = await axios.post("/messages",message);
@@ -81,7 +117,6 @@ export default function Messenger() {
             console.log(err);
         }
     };
-
 
     useEffect(()=>{
         
@@ -118,9 +153,9 @@ export default function Messenger() {
                                     {
                                         messages.map((m) =>{
                                             return(
-                                                <div ref = { scrollRef }>  
+                                                <div key ={m._id} ref = { scrollRef }>  
                                                     <Message 
-                                                        key ={m._id} 
+                                                         
                                                         message = { m } 
                                                         own = { m.sender === user._id }
                                                     />
@@ -157,7 +192,11 @@ export default function Messenger() {
                         
                 <div className="chatOnline">
                     <div className="chatOnlineWrapper">
-                        <ChatOnline />
+                        <ChatOnline 
+                            onlineUsers = { onlineUsers }
+                            currentId = {user._id } 
+                            setCurrentChat = { setCurrentChat }
+                        />
                     </div>
                 </div>
             </div>
