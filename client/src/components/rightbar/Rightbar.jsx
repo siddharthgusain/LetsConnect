@@ -18,7 +18,15 @@ export default function Rightbar({ user }) {
 
     const { user : currentUser , dispatch } = useContext(AuthContext);
 
-    const [ followed, setFollowed ] = useState(currentUser.followings.includes(user?.id));
+    const [ followed, setFollowed ] = useState(false);
+    
+    console.log(currentUser.followings.includes(user?._id));
+
+    useEffect(() =>{
+
+        setFollowed(currentUser.followings.includes(user?._id));
+
+    },[user._id]);
 
     useEffect(() =>{
 
@@ -105,6 +113,7 @@ export default function Rightbar({ user }) {
         return (
             <>
                 { user.username !== currentUser.username && (
+
                     <button className="rightbarFollowButton" onClick = { handleFollowClick }>
                         
                        { followed ? "Unfollow" : "Follow"}

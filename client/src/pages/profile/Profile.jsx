@@ -4,7 +4,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Feed from '../../components/feed/Feed';
 import Rightbar from '../../components/rightbar/Rightbar';
 import { useState , useEffect  } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Profile() {
@@ -14,6 +14,7 @@ export default function Profile() {
     const [ user , setUser ] = useState({});
     
     const username = useParams().username;
+
 
     useEffect(() => {
         
