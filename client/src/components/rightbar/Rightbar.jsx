@@ -3,7 +3,7 @@ import { Users } from '../../dummyData';
 import Online from '../online/Online';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { Add , Remove } from '@material-ui/icons';
 import { Follow , Unfollow } from '../../context/AuthActions';
@@ -13,6 +13,8 @@ export default function Rightbar({ user }) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
     const [friends , setfriends ] = useState([]);
+
+    const history = useHistory();
 
     const { user : currentUser , dispatch } = useContext(AuthContext);
 
@@ -24,7 +26,7 @@ export default function Rightbar({ user }) {
 
             try{
 
-                const friendList = await axios.get("/users/friends/" + user._id);
+                const friendList = await axios.get("/users/friends/" + currentUser._id);
                 setfriends(friendList.data);
             
 
@@ -35,7 +37,7 @@ export default function Rightbar({ user }) {
 
         getFriends();
 
-    },[user]);
+    },[currentUser]);
 
     const handleFollowClick = async () =>{
 
@@ -67,7 +69,13 @@ export default function Rightbar({ user }) {
 
     };
 
+    const handleLogoutClick  = () =>{
 
+        localStorage.removeItem("user");
+        history.push("/login");
+        window.location.reload();
+        
+    };
 
     const HomeRightbar = () => {
         return (
@@ -92,6 +100,7 @@ export default function Rightbar({ user }) {
         );
     };
 
+
     const ProfileRightbar = () =>{
         return (
             <>
@@ -107,7 +116,7 @@ export default function Rightbar({ user }) {
                 {
                     user.username === currentUser.username && (
 
-                    <button className = "rightbarLogoutButton"  >
+                    <button className = "rightbarLogoutButton" onClick = { handleLogoutClick }  >
                         Logout
                     </button>
 

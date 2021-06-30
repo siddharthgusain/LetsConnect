@@ -89,7 +89,7 @@
 .rightbarFollowings{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .rightbarFollowing{
@@ -97,6 +97,7 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
