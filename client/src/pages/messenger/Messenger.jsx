@@ -124,6 +124,8 @@ export default function Messenger() {
 
     },[messages]);
 
+
+
     return (
         <>
             <Topbar />
@@ -192,6 +194,9 @@ export default function Messenger() {
                         
                 <div className="chatOnline">
                     <div className="chatOnlineWrapper">
+                        <div className="onlineFriendsLabel">
+                            Online
+                        </div>
                         <ChatOnline 
                             onlineUsers = { onlineUsers }
                             currentId = {user._id } 
