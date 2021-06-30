@@ -11,11 +11,15 @@ export default function Messenger() {
                     <div className="chatMenuWrapper">
                         <input placeholder = "Search for friends" className="chatMenuInput" />
                         <Conversations />
+                        <Conversations />
+                        <Conversations />
+                        <Conversations />
                     </div>
                 </div>
                 <div className="chatBox">
                     <div className="chatBoxWrapper">
-                        box
+                        <div className="chatBoxTop"></div>
+                        <div className="chatBoxBottom"></div>
                     </div>
                 </div>
                 <div className="chatOnline">

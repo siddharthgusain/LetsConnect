@@ -5,14 +5,14 @@
 
 .chatMenu{
     flex: 3.5;
-    background-color: rgb(109, 175, 230);
+    background-color: rgb(253, 254, 255);
 }
 
 .chatMenuInput{
     width: 90%;
     padding: 10px 0;
     border: none;
-    border-bottom: 1px solid black;
+    border: 2px solid black;
     border-radius: 10px;
 }
 
