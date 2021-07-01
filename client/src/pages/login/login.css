@@ -59,13 +59,14 @@
 
 .loginInput:focus{
     outline: none;
+    border: 3px solid rgb(29, 161, 242);
 }
 
 .loginButton{
     height: 50px;
     border-radius: 15px;
     border: none;
-    background-color: blue;
+    background-color: rgb(29, 161, 242);
     color:whitesmoke;
     font-size: 20px;
     font-weight: 500;
@@ -75,6 +76,7 @@
 .loginButton:disabled{
     cursor: not-allowed;
 }
+
 .loginForgot{
     text-align: center;
     color:rgba(10, 10, 204, 0.89)
