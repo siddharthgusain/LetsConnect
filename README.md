@@ -1,5 +1,5 @@
 # LetsConnect
-A social media app having frontend built with react and backend with nodejs , express js and database used is mongoDB
+A social media app having frontend built with React and backend with Nodejs , express js and database used is mongoDB
 ## Features 
 
 1. User can follow/unfollow , share/view new post , login/logout and
